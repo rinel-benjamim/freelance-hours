@@ -15,11 +15,6 @@ class WelcomeController extends Controller
     public function __invoke(Request $request)
     {
 
-        User::query()->create([
-            'name' => 'Ana Maria',
-            'email' => 'ana@gmail.com',
-            'password' => 'ana124'
-        ]);
         return view('welcome');
     }
 }

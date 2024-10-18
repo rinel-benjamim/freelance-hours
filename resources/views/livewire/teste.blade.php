@@ -1,4 +1,6 @@
 <div>
+    <h1>Meu coponente Livewire</h1>
+
     <input wire:model.live="search">
 
     <br>
@@ -9,5 +11,6 @@
         <li>{{$user->name}}</li>
 
         @endforeach
+        
     </ul>
 </div>
