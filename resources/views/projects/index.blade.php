@@ -1,3 +1,7 @@
-<div>
-    <!-- I have not failed. I've just found 10,000 ways that won't work. - Thomas Edison -->
-</div>
+<x-layouts.app>
+
+    <a href="{{ route('projects.show', 1) }}">
+        Olá mundo
+    </a>
+
+</x-layouts.app>
