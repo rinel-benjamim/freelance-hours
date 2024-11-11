@@ -1,3 +1,4 @@
-<div>
-    <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
-</div>
+<x-layouts.app>
+
+    show
+</x-layouts.app>
