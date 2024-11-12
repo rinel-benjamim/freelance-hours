@@ -1,3 +1,8 @@
 <div>
-    {{-- Because she competes with no one, no one can compete with her. --}}
+    Componente livewire projects.show
+
+    <pre>
+        title: {{ $project->title }}
+        description: {!! $project->description !!}
+    </pre>
 </div>
