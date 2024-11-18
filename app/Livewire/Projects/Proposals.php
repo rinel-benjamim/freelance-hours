@@ -4,6 +4,7 @@ namespace App\Livewire\Projects;
 
 use App\Models\Project;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Proposals extends Component
@@ -30,6 +31,7 @@ class Proposals extends Component
         return $this->project->proposals()->latest()->first()->created_at->diffForHumans();
     }
 
+    #[On('proposal::created')]
     public function render()
     {
         return view('livewire.projects.proposals');
