@@ -113,17 +113,12 @@ DB_PASSWORD=your_password
 php artisan migrate
 ```
 
-7. **Build assets**
-```bash
-npm run dev
-```
-
-8. **Start the development server**
+7. **Start the development server**
 ```bash
 php artisan serve
 ```
 
-9. **Configure queue worker**
+8. **Configure queue worker**
 The project uses a database queue driver. Start the queue worker:
 ```bash
 php artisan queue:work database
