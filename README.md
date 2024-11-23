@@ -5,7 +5,7 @@
 ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
 
 [![GitHub followers](https://img.shields.io/github/followers/rinel-benjamim?style=social)](https://github.com/rinel-benjamim)
 
@@ -36,10 +36,11 @@ Freelance Hours is a project management platform that connects freelancers with 
 - Track created projects and submitted proposals
 
 ### 🔧 Technical Features
-- Email notifications for proposal updates
-- Job queue system for background processing
-- Cache system for improved performance
+- Email notifications for proposal updates (currently in log mode)
+- Database-backed job queue system
+- Database-backed cache system
 - JSON storage for tech stack data
+- Localized for Brazilian Portuguese (pt_BR)
 
 ## 🗄️ Database Structure
 
@@ -65,7 +66,7 @@ Freelance Hours is a project management platform that connects freelancers with 
 - PHP >= 8.1
 - Composer
 - Node.js & NPM
-- MySQL
+- SQLite (default) or MySQL
 
 ### Setup Steps
 
@@ -91,7 +92,13 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-5. **Configure your database in .env file**
+5. **Database Setup**
+By default, the project uses SQLite. Create the database file:
+```bash
+touch database/database.sqlite
+```
+
+If you prefer MySQL, update these settings in your .env file:
 ```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -116,20 +123,41 @@ npm run dev
 php artisan serve
 ```
 
-9. **Configure queue worker (optional but recommended)**
+9. **Configure queue worker**
+The project uses a database queue driver. Start the queue worker:
 ```bash
-php artisan queue:work
+php artisan queue:work database
 ```
 
 Visit `http://localhost:8000` in your browser.
+
+## 🔧 System Configuration
+
+### Core Settings
+- **Application Name:** FreelanceHours
+- **Timezone:** UTC
+- **Locale:** pt_BR (Brazilian Portuguese)
+- **Debug Mode:** Enabled in development
+
+### Storage Drivers
+- **Session:** Database
+- **Cache:** Database
+- **Queue:** Database
+- **Filesystem:** Local
+- **Mail:** Log driver (for development)
+
+### Security
+- **Session Lifetime:** 120 minutes
+- **Session Encryption:** Disabled
+- **BCrypt Rounds:** 12
 
 ## 🔧 Technologies Used
 
 - **Backend:** Laravel 10.x, PHP 8.1
 - **Frontend:** TailwindCSS, JavaScript
-- **Database:** MySQL
-- **Queue System:** Laravel Jobs
-- **Cache:** Laravel Cache
+- **Database:** SQLite (default) / MySQL (optional)
+- **Queue System:** Laravel Jobs with Database Driver
+- **Cache:** Laravel Cache with Database Driver
 - **Development:** Vite
 
 ## 👨‍💻 Developer
