@@ -19,7 +19,7 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(5),
+            'title' => fake()->jobTitle(),
             'description' => fake()->realTextBetween(100, 900),
             'ends_at' => fake()->dateTimeBetween('now', '+3 days'),
             'status' => fake()->randomElement(['open', 'closed']),
