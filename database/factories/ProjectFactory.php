@@ -20,7 +20,7 @@ class ProjectFactory extends Factory
     {
         return [
             'title' => fake()->sentence(5),
-            'description' => 'oi',
+            'description' => fake()->realTextBetween(100, 900),
             'ends_at' => fake()->dateTimeBetween('now', '+3 days'),
             'status' => fake()->randomElement(['open', 'closed']),
             'tech_stack' => fake()->randomElements(['nodejs', 'react', 'javascript', 'vite', 'nextjs'], random_int(1, 5)),
