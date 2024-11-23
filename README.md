@@ -13,31 +13,51 @@
 
 ## 📋 About
 
-Freelance Hours is a comprehensive project management system designed specifically for freelancers to track their working hours, manage projects, and streamline their workflow. Built with Laravel and modern web technologies, it provides an intuitive interface for managing freelance work efficiently.
+Freelance Hours is a project management platform that connects freelancers with projects. It allows project owners to post their projects with specific tech stack requirements and deadlines, while freelancers can submit proposals with their estimated working hours. The system streamlines the project bidding process and helps manage project timelines effectively.
 
 ## ✨ Features
 
 ### 🚀 Project Management
-- Create and manage multiple projects
-- Track project status and deadlines
-- Organize projects by tech stack and categories
-- View detailed project analytics
+- Create and publish projects with detailed descriptions
+- Specify required tech stack (e.g., Node.js, React, JavaScript)
+- Set project deadlines and track status (open/closed)
+- View and manage all project proposals
 
-### ⏱️ Time Tracking
-- Log working hours for each project
-- Generate detailed time reports
-- Track billable hours automatically
-- Export time logs for invoicing
+### 📝 Project Proposals
+- Submit proposals for open projects
+- Specify estimated hours for project completion
+- Track proposal status
+- Receive notifications about proposal updates
 
-### 👥 Client Management
-- Maintain client information
-- Track client-specific project requirements
-- Manage client communication history
+### 👥 User System
+- User authentication and authorization
+- Project creation and management for project owners
+- Profile management with email verification
+- Track created projects and submitted proposals
 
-### 💰 Financial Management
-- Generate invoices based on tracked hours
-- Set different hourly rates per project
-- Track payments and outstanding balances
+### 🔧 Technical Features
+- Email notifications for proposal updates
+- Job queue system for background processing
+- Cache system for improved performance
+- JSON storage for tech stack data
+
+## 🗄️ Database Structure
+
+### Projects Table
+- `id`: Unique identifier
+- `title`: Project title
+- `description`: Detailed project description
+- `ends_at`: Project deadline
+- `status`: Project status (open/closed)
+- `tech_stack`: Required technologies (JSON)
+- `created_by`: Project owner reference
+
+### Proposals Table
+- `id`: Unique identifier
+- `email`: Freelancer's email
+- `hours`: Estimated completion hours
+- `project_id`: Associated project
+- `position_status`: Proposal status
 
 ## 🛠️ Installation
 
@@ -96,6 +116,11 @@ npm run dev
 php artisan serve
 ```
 
+9. **Configure queue worker (optional but recommended)**
+```bash
+php artisan queue:work
+```
+
 Visit `http://localhost:8000` in your browser.
 
 ## 🔧 Technologies Used
@@ -103,7 +128,8 @@ Visit `http://localhost:8000` in your browser.
 - **Backend:** Laravel 10.x, PHP 8.1
 - **Frontend:** TailwindCSS, JavaScript
 - **Database:** MySQL
-- **Authentication:** Laravel Breeze
+- **Queue System:** Laravel Jobs
+- **Cache:** Laravel Cache
 - **Development:** Vite
 
 ## 👨‍💻 Developer
@@ -119,7 +145,7 @@ Visit `http://localhost:8000` in your browser.
   </a>
 </div>
 
-Full-stack developer passionate about creating efficient solutions for real-world problems. Specialized in Laravel and modern web development technologies.
+Full-stack developer specialized in Laravel and modern web development technologies. Creating efficient solutions for real-world freelancing challenges.
 
 ## 📄 License
 
